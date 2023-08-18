@@ -11,13 +11,13 @@ function Row({ title, fetchUrl, isLargeRow }) {
     const [trailerUrl, setTrailerUrl] = useState("");
 
 const Movie = ({movie, isLargeRow}) => {
-    const opts = {
-        height: "390",
-        width: "100%",
-        playerVars: {
-            autoplay: 1,
-        },
-    };
+    // const opts = {
+    //     height: "390",
+    //     width: "100%",
+    //     playerVars: {
+    //         autoplay: 1,
+    //     },
+    // };
 
     const handleClick = (e, movie) => {
         if (trailerUrl) {
@@ -25,7 +25,6 @@ const Movie = ({movie, isLargeRow}) => {
         } else {
             movieTrailer(movie?.name || "")
             .then((url) => {
-                https://youtube.com/watch?v=XtMThy8QKqU
                 const urlParams = new URLSearchParams(new URL(url).search);
                 setTrailerUrl(urlParams.get("v"));
             })
@@ -65,7 +64,7 @@ const Movie = ({movie, isLargeRow}) => {
                     <Movie movie={movie} isLargeRow={isLargeRow} />
                 ))}
             </div> 
-            {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+            {trailerUrl && <YouTube videoId={trailerUrl}  />}
         </div>
     );
 }
